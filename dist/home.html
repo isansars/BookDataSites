@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="323264559868-un8aidbbvf26mtm9n6la3ma0uadsfonf.apps.googleusercontent.com">
+    <title>BookSite</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-dark bg-booksite">
+        <span class="navbar-brand"><img class="logo" src="..\src\image\Logo_BookSite_navbar.png"></span>
+        <a class="sign-out" href="#" onclick="signOut();">Sign out</a>
+    </nav>
+</header>
+<main class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Input Buku</h5>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="inputBookId">ID Buku</label>
+                        <input id="inputBookId" type="number" class="form-control" placeholder="ID Buku">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputBookTitle">Judul Buku</label>
+                        <input id="inputBookTitle" type="text" class="form-control" placeholder="Judul Buku">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputBookAuthor">Pengarang</label>
+                        <input id="inputBookAuthor" type="text" class="form-control" placeholder="Pengarang">
+                    </div>
+                    <div class="form-group">
+                        <button id="buttonSave" class="btn btn-success">Save</button>
+                        <button id="buttonUpdate" class="btn btn-primary">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="listBook" class="row"></div>
+</main>
+<script src="index.js"></script>
+<script>
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log('User signed out.');
+      });
+    }
+</script>
+<script type="text/javascript" src="bundle.js"></script></body>
+</html>
