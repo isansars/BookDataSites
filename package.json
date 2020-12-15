@@ -4,16 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.js",
+    "start": "node server.js",
     "build": "webpack --config webpack.prod.js",
     "start-dev": "webpack-dev-server --config webpack.dev.js",
-    "heroku-postbuild": "echo Skip build on Heroku"
+    "heroku-postbuild": "echo Skip build on Heroku",
+    "dev": "webpack serve"
   },
   "author": "Ichsan Sholeh Abdurrahim <ichsansar336@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
+    "@webpack-cli/serve": "^1.1.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.1",
     "html-loader": "^0.5.5",
@@ -25,11 +27,12 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1",
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "babel-loader": "^8.0.6",
+    "bootstrap": "^4.4.1",
     "css-loader": "^3.4.1",
+    "express": "^4.17.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "regenerator-runtime": "^0.13.3",
@@ -40,4 +43,4 @@
     "webpack-merge": "^4.2.2"
   },
   "heroku-run-build-script": true
-  }
+}
