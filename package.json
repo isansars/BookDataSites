@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "start-dev": "webpack-dev-server --config webpack.dev.js"
+    "start-dev": "webpack-dev-server --config webpack.dev.js",
+    "heroku-postbuild": "echo Skip build on Heroku"
   },
   "author": "Ichsan Sholeh Abdurrahim <ichsansar336@gmail.com>",
   "license": "ISC",
@@ -25,5 +26,6 @@
   "dependencies": {
     "bootstrap": "^4.4.1",
     "regenerator-runtime": "^0.13.3"
-  }
+  },
+  "heroku-run-build-script": true
 }
