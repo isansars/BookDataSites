@@ -6,6 +6,7 @@ function main() {
 
     const baseURL = "https://bookdataserver.herokuapp.com/";
 
+    // Mengambil data buku yang ada pada web server
     const getBook = () => {
         fetch(`${baseURL}/api/books`)
             .then(response => {
@@ -23,6 +24,7 @@ function main() {
             })
     };
 
+    // Memasukkan data buku ke database dari data input pengguna
     const insertBook = (book) => {
         fetch(`${baseURL}/api/books`, {
             method: "POST",
@@ -44,6 +46,7 @@ function main() {
         })
     };
 
+    // Mengupdate data buku pada database dari 
     const updateBook = (book) => {
         fetch(`${baseURL}/api/books/${book.id}`, {
             method: "PUT",
@@ -65,6 +68,7 @@ function main() {
         })
     };
 
+    // Mengahapus data buku dari database berdasarkan id
     const removeBook = (bookId) => {
         fetch(`${baseURL}/api/books/${bookId}`, {
             method: "DELETE",
@@ -88,49 +92,12 @@ function main() {
         Proses data dari API
     */
 
-    // const renderPage = () => {
-    //     const navbarElement = document.querySelector("#NavBar");
-    //     navbarElement.innerHTML = `
-    //         <nav class="navbar navbar-dark bg-booksite">
-    //             <span class="navbar-brand"><img class="logo" src="src\image\Logo_BookSite_navbar.png"></span>
-    //             <a class="sign-out" href="#" onclick="signOut();">Sign out</a>
-    //         </nav>
-    //     `;
-
-    //     const BoxElement = document.querySelector("#");
-    //     BoxElement.innerHTML = `
-    //         <div class="col-12">
-    //             <div class="card">
-    //                 <div class="card-header">
-    //                     <h5 class="card-title">Input Buku</h5>
-    //                 </div>
-    //                 <div class="card-body">
-    //                     <div class="form-group">
-    //                         <label for="inputBookId">ID Buku</label>
-    //                         <input id="inputBookId" type="number" class="form-control" placeholder="ID Buku">
-    //                     </div>
-    //                     <div class="form-group">
-    //                         <label for="inputBookTitle">Judul Buku</label>
-    //                         <input id="inputBookTitle" type="text" class="form-control" placeholder="Judul Buku">
-    //                     </div>
-    //                     <div class="form-group">
-    //                         <label for="inputBookAuthor">Pengarang</label>
-    //                         <input id="inputBookAuthor" type="text" class="form-control" placeholder="Pengarang">
-    //                     </div>
-    //                     <div class="form-group">
-    //                         <button id="buttonSave" class="btn btn-success">Save</button>
-    //                         <button id="buttonUpdate" class="btn btn-primary">Update</button>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     `;
-    // }
-
+    // Menampilkan list buku dari data yang diterima dari API ke dalam bentuk komponen HTML
     const renderAllBooks = (books) => {
+        // Menampilkan Box beserta elemen item 
         const listBookElement = document.querySelector("#listBook");
         listBookElement.innerHTML = "";
-
+        
         books.forEach(book => {
             listBookElement.innerHTML += `
                 <div class="col-lg-4 col-md-6 col-sm-12" style="margin-top: 12px;">
@@ -145,6 +112,7 @@ function main() {
             `;
         });
 
+        // Membuat tombol delete pada setiap box buku
         const buttons = document.querySelectorAll(".button-delete");
         buttons.forEach(button => {
             button.addEventListener("click", event => {
@@ -158,6 +126,7 @@ function main() {
         alert(message);
     };
 
+    // menambahkan action untuk setiap elemen
     document.addEventListener("DOMContentLoaded", () => {
 
         const inputBookId = document.querySelector("#inputBookId");

@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Script untuk Google API -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="323264559868-un8aidbbvf26mtm9n6la3ma0uadsfonf.apps.googleusercontent.com">
     <title>BookSite</title>
 </head>
 <body>
 <header>
+    <!-- Navbar -->
     <nav class="navbar navbar-dark bg-booksite">
         <span class="navbar-brand">
             <img class="logo" src="../src/image/Logo_BookSite_navbar.png">
         </span>
         <button id="logoutButton" class="sign-out" onclick="signOut();">Sign out</button>
         <div id="loginButton" class="g-signin2" onclick="signIn()" data-onsuccess="onSignIn"></div>
-        <!-- <span class="align-middle btn btn-primary btn-block"> -->
-        <!-- </span> -->
-        <!-- <div id="my-signin2"></div> -->
     </nav>
 </header>
+<!-- Control Box untuk melakukan input atau update buku -->
 <main class="container">
     <div class="row">
         <div class="col-12">
@@ -48,6 +48,7 @@
             </div>
         </div>
     </div>
+    <!-- bagian yang akan berisi daftar buku -->
     <div id="listBook" class="row"></div>
 </main>
 <script src="index.js"></script>
@@ -109,192 +110,3 @@
 </script>
 </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-signin-client_id" content="323264559868-un8aidbbvf26mtm9n6la3ma0uadsfonf.apps.googleusercontent.com">
-    <title>Bootstrap Sign in Form like Google</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <style>
-        .login-form {
-            width: 330px;
-            margin: 30px auto;
-        }
-        .login-form h2 {
-            font-size: 19px;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        .login-form form {        
-            background: #f7f7f7;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);        
-            margin-bottom: 10px;
-            padding: 30px;
-        }
-        .login-form .avatar {
-            width: 90px;
-            margin-bottom: 20px;
-        }
-        .login-form .form-control, .login-form .btn {
-            min-height: 38px;        
-        }
-        .login-form input[type="email"] {
-            border-radius: 2px 2px 0 0;
-        }
-        .login-form input[type="password"] {
-            border-radius: 0 0 2px 2px;
-            margin-top: -1px;
-        }
-        .login-form input.form-control:focus {
-            position: relative;
-            z-index: 2;
-        }
-        .login-form .btn {        
-            font-size: 15px;
-            font-weight: bold;
-            border-radius: 2px;
-        }
-        .login-form .bottom-action {
-            font-size: 14px;
-        }
-        .login-form input[type="checkbox"] {
-            position: relative;
-            top: 1px;
-        }
-        .login-form .g-signin2{
-            margin: auto;
-            width: 150%;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div id="NavBar" class="row">
-            <nav class="navbar navbar-dark bg-booksite">
-                <span class="navbar-brand"><img class="logo" src="src/image/Logo_BookSite_navbar.png"></span>
-                <a class="sign-out" onclick="signOut();">Sign out</a>
-            </nav>
-        </div>
-    </header>
-    <main class="container">
-        <div id="BoxElement" class="row"></div>
-    
-        <div id="listBook" class="row"></div>
-
-        <div id="loginForm" class="login-form">
-            <h2>Sign in to Your Account</h2>
-            <form action="/examples/actions/confirmation.php" method="post">
-                <div class="text-center">
-                    <img src="src/image/Logo_BookSite.png" class="rounded-circle avatar" alt="Avatar">
-                </div>        
-                <span class="align-middle btn btn-primary btn-block"><div class="g-signin2" data-onsuccess="onSignIn"></div></span>
-                <div id="my-signin2"></div>
-            </form>
-        </div>
-    </main>
-    <script src="index.js"></script>
-    <script>
-        const loginElement = document.querySelector("#loginForm");
-        const navbarElement = document.querySelector("#NavBar");
-        const BoxElement = document.querySelector("#BoxElement");
-
-        const renderLoginPage = () => {
-            loginElement.innerHTML = `
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-                <link rel="stylesheet" href="styles/style.css">
-                <h2>Sign in to Your Account</h2>
-                <form action="/examples/actions/confirmation.php" method="post">
-                    <div class="text-center">
-                        <img src="src/image/Logo_BookSite.png" class="rounded-circle avatar" alt="Avatar">
-                    </div>        
-                    <!-- <span class="align-middle btn btn-primary btn-block"><div class="g-signin2" data-onsuccess="onSignIn"></div></span> -->
-                    <!-- <div id="my-signin2"></div>
-                </form>
-            `;
-        }
-        const renderPage = () => {
-            navbarElement.innerHTML = `
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-                <link rel="stylesheet" href="styles/style.css">
-                <nav class="navbar navbar-dark bg-booksite">
-                    <span class="navbar-brand"><img class="logo" src="src/image/Logo_BookSite_navbar.png"></span>
-                    <a class="sign-out" onclick="signOut();">Sign out</a>
-                </nav>
-            `;
-
-            BoxElement.innerHTML = `
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-                <link rel="stylesheet" href="styles/style.css">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">Input Buku</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="inputBookId">ID Buku</label>
-                                <input id="inputBookId" type="number" class="form-control" placeholder="ID Buku">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputBookTitle">Judul Buku</label>
-                                <input id="inputBookTitle" type="text" class="form-control" placeholder="Judul Buku">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputBookAuthor">Pengarang</label>
-                                <input id="inputBookAuthor" type="text" class="form-control" placeholder="Pengarang">
-                            </div>
-                            <div class="form-group">
-                                <button id="buttonSave" class="btn btn-success">Save</button>
-                                <button id="buttonUpdate" class="btn btn-primary">Update</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-        function onSuccess(googleUser) {
-            console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-            loginElement.innerHTML = "";
-            renderPage();
-        }
-        function onFailure(error) {
-            console.log(error);
-        }
-        function renderButton() {
-            gapi.signin2.render('my-signin2', {
-                'scope': 'profile email',
-                'margin': 'auto',
-                'width': 240,
-                'height': 50,
-                'longtitle': true,
-                'theme': 'dark',
-                'onsuccess': onSuccess,
-                'onfailure': onFailure
-            });
-        }
-        function signOut() {
-          var auth2 = gapi.auth2.getAuthInstance();
-          auth2.signOut().then(function () {
-            console.log('User signed out.');
-            navbarElement.innerHTML = "";
-            BoxElement.innerHTML = "";
-            renderLoginPage();
-          });
-        }
-    </script>
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-</body>
-</html> -->
