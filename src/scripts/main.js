@@ -4,7 +4,7 @@ function main() {
         Fetch API dari BookData Web Server
     */
 
-    const baseURL = "https://bookdataserver.herokuapp.com/";
+    const baseURL = "https://bookdataserver.herokuapp.com";
 
     // Mengambil data buku yang ada pada web server
     const getBook = () => {
