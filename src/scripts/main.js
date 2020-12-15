@@ -88,6 +88,45 @@ function main() {
         Proses data dari API
     */
 
+    // const renderPage = () => {
+    //     const navbarElement = document.querySelector("#NavBar");
+    //     navbarElement.innerHTML = `
+    //         <nav class="navbar navbar-dark bg-booksite">
+    //             <span class="navbar-brand"><img class="logo" src="src\image\Logo_BookSite_navbar.png"></span>
+    //             <a class="sign-out" href="#" onclick="signOut();">Sign out</a>
+    //         </nav>
+    //     `;
+
+    //     const BoxElement = document.querySelector("#");
+    //     BoxElement.innerHTML = `
+    //         <div class="col-12">
+    //             <div class="card">
+    //                 <div class="card-header">
+    //                     <h5 class="card-title">Input Buku</h5>
+    //                 </div>
+    //                 <div class="card-body">
+    //                     <div class="form-group">
+    //                         <label for="inputBookId">ID Buku</label>
+    //                         <input id="inputBookId" type="number" class="form-control" placeholder="ID Buku">
+    //                     </div>
+    //                     <div class="form-group">
+    //                         <label for="inputBookTitle">Judul Buku</label>
+    //                         <input id="inputBookTitle" type="text" class="form-control" placeholder="Judul Buku">
+    //                     </div>
+    //                     <div class="form-group">
+    //                         <label for="inputBookAuthor">Pengarang</label>
+    //                         <input id="inputBookAuthor" type="text" class="form-control" placeholder="Pengarang">
+    //                     </div>
+    //                     <div class="form-group">
+    //                         <button id="buttonSave" class="btn btn-success">Save</button>
+    //                         <button id="buttonUpdate" class="btn btn-primary">Update</button>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     `;
+    // }
+
     const renderAllBooks = (books) => {
         const listBookElement = document.querySelector("#listBook");
         listBookElement.innerHTML = "";
@@ -146,6 +185,12 @@ function main() {
             updateBook(book)
         });
         getBook();
+
+        const buttons = document.querySelectorAll(".button-delete");
+        buttons.forEach(button => {
+            button.disabled = true;
+        })
+
     });
 }
 
